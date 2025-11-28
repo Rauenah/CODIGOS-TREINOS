@@ -1,0 +1,72 @@
+
+from datetime import datetime
+
+def calcular_idade(data_nascimento):
+    nascimento = datetime.strptime(data_nascimento, "%d/%m/%Y")
+    hoje = datetime.today()
+    idade = hoje.year - nascimento.year
+
+    if (hoje.month, hoje.day) < (nascimento.month, nascimento.day):
+        idade -= 1
+
+    return idade
+
+print("Calculadora de idade")
+data = input("Digite sua data de nascimento (dd/mm/aaaa): ")
+print(f"Você tem {calcular_idade(data)} anos.")
+```
+
+# Explicação linha a linha
+
+1. `from datetime import datetime`
+   — Aqui a gente pede ao Python uma ferramenta que trabalha com datas e horas. `datetime` é como um relógio/calendário que o Python entende.
+
+2. (linha em branco)
+   — Espaço só para deixar o código mais organizado. Não faz nada.
+
+3. `def calcular_idade(data_nascimento):`
+   — **Estamos criando uma função** chamada `calcular_idade`.
+   — Função é como uma mini-máquina que, quando você dá uma data de nascimento, ela retorna a idade. `data_nascimento` é o nome da caixinha onde colocamos essa data.
+
+4. `    nascimento = datetime.strptime(data_nascimento, "%d/%m/%Y")`
+   — Essa linha pega a string que você digitou (por exemplo `"25/12/2000"`) e **transforma em um objeto de data** que o Python entende.
+   — `strptime` significa "string para tempo". O `"%d/%m/%Y"` diz o formato: dia/mês/ano.
+
+5. `    hoje = datetime.today()`
+   — Pega a data e hora de hoje (o dia atual do computador) e guarda na variável `hoje`. Assim sabemos qual é a data de referência.
+
+6. `    idade = hoje.year - nascimento.year`
+   — Calcula a diferença entre o ano atual e o ano de nascimento. Ex.: 2025 - 2000 = 25. Isso dá a idade *aproximada*.
+
+7. (linha em branco)
+   — Só organiza visualmente.
+
+8. `    if (hoje.month, hoje.day) < (nascimento.month, nascimento.day):`
+   — Verifica se **o aniversário deste ano ainda não aconteceu**.
+   — Compara primeiro o mês e depois o dia. Se hoje for antes do dia e mês do nascimento, então o aniversário deste ano ainda não chegou.
+
+9. `        idade -= 1`
+   — Se o aniversário ainda não chegou, subtrai 1 da idade. Porque no cálculo anterior (ano atual - ano de nascimento) já contamos um ano a mais até o aniversário.
+   — `idade -= 1` é a mesma coisa que `idade = idade - 1`.
+
+10. (linha em branco)
+    — Organização.
+
+11. `    return idade`
+    — A função termina aqui e **devolve** o número da idade calculada. Quem chamou a função vai receber esse número.
+
+12. (linha em branco)
+    — Organização fora da função.
+
+13. `print("Calculadora de idade")`
+    — Mostra no ecrã a mensagem `Calculadora de idade`. Só para o usuário ver o que o programa faz.
+
+14. `data = input("Digite sua data de nascimento (dd/mm/aaaa): ")`
+    — Pede que o usuário digite a data de nascimento. O que a pessoa digitar vai ficar guardado na variável `data` como texto (string).
+    — Importante: o formato tem que ser `dd/mm/aaaa` — ex.: `05/07/1990`. Se colocar outro formato, o programa dá erro.
+
+15. `print(f"Você tem {calcular_idade(data)} anos.")`
+    — Aqui o programa chama a função `calcular_idade` com a `data` que o usuário digitou.
+    — O valor devolvido pela função (a idade) é então colocado dentro da mensagem e mostrada para o usuário.
+    — `f"..."` é uma forma prática de misturar texto com valores dentro das chaves `{}`.
+

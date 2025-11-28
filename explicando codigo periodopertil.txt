@@ -1,0 +1,56 @@
+
+
+# 🧸✨ **CÓDIGO COM EXPLICAÇÕES BEM SIMPLES
+
+from datetime import datetime, timedelta  # Isso aqui ajuda o computador a entender datas
+
+# Essa função serve para pegar a data que você digitou e transformar numa data de verdade
+def ler_data(data_digitada):
+    formatos = ["%d/%m/%Y", "%d%m%Y"]  # Pode escrever com barra (10/02/2024) ou tudo junto (10022024)
+
+    for formato in formatos:
+        try:
+            # O computador tenta entender a data de um jeito
+            return datetime.strptime(data_digitada, formato)
+        except ValueError:
+            # Se ele não conseguir entender, tenta o outro jeito
+            continue
+
+    # Se ele não conseguir de nenhum jeito, avisa que a data está errada
+    raise ValueError("Ops! Essa data não existe. Tente de novo!")
+
+# Essa função descobre quando você está no período fértil
+def calcular_periodo_fertil(data_menstruacao, ciclo=28):
+    # Primeiro, o computador descobre qual foi o dia da sua última menstruação
+    data_inicio = ler_data(data_menstruacao)
+
+    # A ovulação acontece mais ou menos 14 dias antes do próximo ciclo
+    # Então a gente faz uma continha: começo + (ciclo - 14)
+    dia_ovulacao = data_inicio + timedelta(days=ciclo - 14)
+
+    # O período fértil não é só um dia.
+    # Ele é 3 dias antes e 3 dias depois da ovulação.
+    inicio = dia_ovulacao - timedelta(days=3)
+    fim = dia_ovulacao + timedelta(days=3)
+
+    # Aqui retornamos o começo e o fim desses dias especiais
+    return inicio, fim
+
+# Agora começa o programa de verdade
+print("=== Calculadora de Período Fértil ===")
+
+# Aqui o computador pergunta qual foi o dia da sua última menstruação
+data = input("Digite o dia que sua última menstruação começou: ")
+
+# Aqui ele pergunta quantos dias dura seu ciclo (se você apertar ENTER, ele usa 28)
+ciclo = int(input("Quantos dias dura seu ciclo? (se não souber, apenas aperte ENTER): ") or 28)
+
+# Aqui ele descobre o período fértil usando a função lá de cima
+inicio, fim = calcular_periodo_fertil(data, ciclo)
+
+# E agora ele mostra as datas bonitinhas
+print(f"Seu período fértil vai de {inicio.strftime('%d/%m/%Y')} até {fim.strftime('%d/%m/%Y')}")
+```
+
+---
+
