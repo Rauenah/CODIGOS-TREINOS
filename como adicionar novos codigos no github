@@ -1,0 +1,16 @@
+#git add "conversor fusohorario.py"   #exemplo de codigo que subi 03/12/2025
+#git add "lista fusos usados (IANA)"  #exemplo de texto que subi 03/12/2025
+#git commit -m "Adiciona conversor de fuso horário e lista de fusos"
+#git push origin main
+
+
+#Se o nome do arquivo tem espaços, coloque entre aspas (" ").
+#Você pode também renomear o arquivo para evitar espaços, por exemplo:
+
+# mv "conversor fusohorario.py" conversor_fusohorario.py
+
+#- se sua branch principal for master, troque main por master.
+
+#Sempre confira o status antes de subir:
+
+#git status
