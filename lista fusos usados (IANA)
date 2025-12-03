@@ -1,0 +1,49 @@
+
+
+### 🌍 Lista dos fusos mais usados (IANA)
+
+#### 🇧🇷 Brasil
+- `America/Sao_Paulo` → Horário de Brasília  
+- `America/Manaus` → Amazonas  
+- `America/Cuiaba` → Mato Grosso  
+- `America/Fortaleza` → Nordeste  
+- `America/Bahia` → Bahia  
+
+#### 🇪🇺 Europa
+- `Europe/London` → Reino Unido  
+- `Europe/Paris` → França  
+- `Europe/Berlin` → Alemanha  
+- `Europe/Madrid` → Espanha  
+- `Europe/Rome` → Itália  
+- `Europe/Lisbon` → Portugal  
+
+#### 🇺🇸 Estados Unidos
+- `America/New_York` → Costa Leste (EST)  
+- `America/Chicago` → Central (CST)  
+- `America/Denver` → Montanha (MST)  
+- `America/Los_Angeles` → Costa Oeste (PST)  
+- `America/Anchorage` → Alasca  
+- `Pacific/Honolulu` → Havaí  
+
+#### 🌏 Ásia
+- `Asia/Tokyo` → Japão  
+- `Asia/Shanghai` → China  
+- `Asia/Kolkata` → Índia  
+- `Asia/Dubai` → Emirados Árabes  
+- `Asia/Singapore` → Singapura  
+
+#### 🌐 Outros exemplos
+- `Africa/Cairo` → Egito  
+- `Africa/Johannesburg` → África do Sul  
+- `Australia/Sydney` → Austrália  
+- `Pacific/Auckland` → Nova Zelândia  
+
+---
+
+### 📌 Dicas importantes
+- Sempre use **cidade de referência** (Paris, London, Tokyo), nunca o nome do país.  
+- Respeite **maiúsculas/minúsculas** (`Europe/Paris`, não `europe/paris`).  
+- Se aparecer `ZoneInfoNotFoundError`, quase sempre é porque o nome está errado ou o pacote `tzdata` não está instalado.  
+
+
+
