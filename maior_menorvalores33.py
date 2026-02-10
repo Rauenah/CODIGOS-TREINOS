@@ -1,0 +1,22 @@
+# Faça um programa que leia três números e mostre qual é o maior e qual é o menor.
+
+a = int(input("Primeiro valor: "))
+b = int(input("Segundo valor: "))
+c = int(input("Terceiro valor: "))
+
+# VERIFICANDO QUEM É O MENOR
+menor = a
+if b < menor:
+    menor = b
+if c < menor:
+    menor = c
+
+# VERIFICANDO QUEM É O MAIOR
+maior = a
+if b > maior:
+    maior = b
+if c > maior:
+    maior = c
+
+print("O menor valor digitado foi {}".format(menor))
+print("O maior valor digitado foi {}".format(maior))
